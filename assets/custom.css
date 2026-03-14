@@ -1,0 +1,231 @@
+/* ── Google Font Import ─────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── Base Reset & Body ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0a0a0f;
+    background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(0, 229, 255, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(123, 97, 255, 0.04) 0%, transparent 50%);
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: #2a2a3a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #00e5ff; }
+
+/* ── Sidebar ────────────────────────────────────────────────────────────────── */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    background: rgba(15, 15, 25, 0.95);
+    border-right: 1px solid rgba(0, 229, 255, 0.1);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+}
+
+.sidebar-logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00e5ff;
+    letter-spacing: 0.05em;
+    padding: 0 8px 20px 8px;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+    margin-bottom: 10px;
+}
+
+.sidebar-logo span {
+    color: #7b61ff;
+}
+
+.sidebar-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    padding: 12px 8px 6px 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #888 !important;
+    text-decoration: none !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    color: #e0e0e0 !important;
+    background: rgba(0, 229, 255, 0.06);
+    border-color: rgba(0, 229, 255, 0.15);
+}
+
+.nav-link.active {
+    color: #00e5ff !important;
+    background: rgba(0, 229, 255, 0.1);
+    border-color: rgba(0, 229, 255, 0.25);
+}
+
+/* ── Main Content Area ──────────────────────────────────────────────────────── */
+#page-content {
+    margin-left: 220px;
+    padding: 28px 32px;
+    min-height: 100vh;
+}
+
+/* ── Page Header ────────────────────────────────────────────────────────────── */
+.page-header {
+    margin-bottom: 28px;
+}
+
+.page-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.page-header p {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* ── Glass Cards ────────────────────────────────────────────────────────────── */
+.glass-card {
+    background: rgba(20, 20, 35, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    overflow: visible !important;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 229, 255, 0.12);
+    border-color: rgba(0, 229, 255, 0.18) !important;
+}
+
+/* ── KPI Cards ──────────────────────────────────────────────────────────────── */
+.kpi-card {
+    background: rgba(20, 20, 35, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 14px !important;
+    padding: 22px 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0, 229, 255, 0.15);
+    border-color: rgba(0, 229, 255, 0.25) !important;
+}
+
+.kpi-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00e5ff;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.kpi-sub {
+    font-size: 0.78rem;
+    color: #444;
+    margin-top: 6px;
+}
+
+.kpi-icon {
+    font-size: 1.5rem;
+    opacity: 0.6;
+    float: right;
+    margin-top: -4px;
+}
+
+/* ── Dropdowns ──────────────────────────────────────────────────────────────── */
+.Select-control,
+.dash-dropdown .Select-control {
+    background-color: #1a1a2e !important;
+    border: 1px solid #2a2a3a !important;
+    border-radius: 8px !important;
+    color: #e0e0e0 !important;
+}
+
+/* Fix: dropdown menu must float above charts and cards */
+.Select-menu-outer {
+    background-color: #1a1a2e !important;
+    border: 1px solid #2a2a3a !important;
+    z-index: 9999 !important;
+    position: absolute !important;
+}
+
+.dash-dropdown {
+    position: relative;
+    z-index: 9999;
+}
+
+.Select-option {
+    background-color: #1a1a2e !important;
+    color: #e0e0e0 !important;
+}
+
+.Select-option:hover,
+.Select-option.is-focused {
+    background-color: rgba(0, 229, 255, 0.1) !important;
+    color: #00e5ff !important;
+}
+
+/* ── Section Title ──────────────────────────────────────────────────────────── */
+.section-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 14px;
+}
+
+/* ── Utility ────────────────────────────────────────────────────────────────── */
+.text-cyan  { color: #00e5ff !important; }
+.text-purple { color: #7b61ff !important; }
+.text-green  { color: #00e676 !important; }
+.text-orange { color: #ff9100 !important; }
+
+.mt-4 { margin-top: 1.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }

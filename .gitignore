@@ -1,0 +1,23 @@
+﻿# Virtual environment
+venv/
+
+# Large data files
+data/raw_data.csv
+data/optimized_data.parquet
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# VS Code / editor settings
+.vscode/
+.idea/
+
+# Windows junk
+Thumbs.db
+desktop.ini
