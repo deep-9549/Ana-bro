@@ -2,9 +2,19 @@ import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 import plotly.io as pio
+import polars as pl
 
 # ── Global Plotly Theme ────────────────────────────────────────────────────────
 pio.templates.default = "plotly_dark"
+
+# ── Load Data ONCE globally — shared across all pages ─────────────────────────
+print("📦 Loading parquet into memory (one time only)...")
+_df = pl.read_parquet("data/optimized_data.parquet")
+print(f"✅ Data loaded — {_df.shape[0]:,} rows ready.")
+
+def get_df():
+    """All pages call this instead of reading parquet themselves."""
+    return _df
 
 # ── App Initialization ─────────────────────────────────────────────────────────
 app = dash.Dash(
@@ -18,6 +28,9 @@ app = dash.Dash(
     meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
 )
 server = app.server
+
+# ── Limit max request size to prevent MemoryError ─────────────────────────────
+server.config["MAX_CONTENT_LENGTH"] = 32 * 1024 * 1024  # 32 MB cap
 
 # ── Nav Items ─────────────────────────────────────────────────────────────────
 NAV_ITEMS = [
@@ -81,4 +94,4 @@ app.layout = html.Div([
 
 # ── Run ────────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    app.run(debug=True, port=8050)
+    app.run(debug=True, port=8050, threaded=True)

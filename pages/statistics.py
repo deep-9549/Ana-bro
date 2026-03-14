@@ -3,11 +3,12 @@ from dash import html, dcc, callback, Output, Input
 import dash_bootstrap_components as dbc
 import polars as pl
 import plotly.graph_objects as go
+from app import get_df
 
 dash.register_page(__name__, path="/statistics", name="Statistics")
 
 # ── Load Data ──────────────────────────────────────────────────────────────────
-df = pl.read_parquet("data/optimized_data.parquet")
+df = get_df()
 
 # ── Pre-compute: Top 5 categories by purchase volume ──────────────────────────
 top5_categories = (

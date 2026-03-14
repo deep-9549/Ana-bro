@@ -4,11 +4,12 @@ import dash_bootstrap_components as dbc
 import polars as pl
 import plotly.express as px
 import plotly.graph_objects as go
+from app import get_df
 
 dash.register_page(__name__, path="/", name="Overview")
 
 # ── Load Data ──────────────────────────────────────────────────────────────────
-df = pl.read_parquet("data/optimized_data.parquet")
+df = get_df()
 
 # ── Pre-compute KPIs ───────────────────────────────────────────────────────────
 purchases     = df.filter(pl.col("event_type") == "purchase")

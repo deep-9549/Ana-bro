@@ -4,11 +4,12 @@ import dash_bootstrap_components as dbc
 import polars as pl
 import plotly.graph_objects as go
 import numpy as np
+from app import get_df
 
 dash.register_page(__name__, path="/geography", name="Geography")
 
 # ── Load Data ──────────────────────────────────────────────────────────────────
-df = pl.read_parquet("data/optimized_data.parquet")
+df = get_df()
 
 # ── Dropdown Options ───────────────────────────────────────────────────────────
 categories = (
