@@ -164,10 +164,12 @@ def load_scatter(data):
 
 # ── Nav Items ──────────────────────────────────────────────────────────────────
 NAV_ITEMS = [
-    {"label": "Overview",   "href": "/",           "icon": "📊"},
-    {"label": "Funnel",     "href": "/funnel",      "icon": "🔻"},
-    {"label": "Geography",  "href": "/geography",   "icon": "🌍"},
-    {"label": "Statistics", "href": "/statistics",  "icon": "📈"},
+    {"label": "Overview",       "href": "/",               "icon": "📊"},
+    {"label": "Funnel",         "href": "/funnel",          "icon": "🔻"},
+    {"label": "Geography",      "href": "/geography",       "icon": "🌍"},
+    {"label": "Statistics",     "href": "/statistics",      "icon": "📈"},
+    {"label": "Distributions",  "href": "/distributions",   "icon": "🥧"},
+    {"label": "Advanced",       "href": "/advanced",        "icon": "🚀"},
 ]
 
 sidebar = html.Div(id="sidebar", children=[
